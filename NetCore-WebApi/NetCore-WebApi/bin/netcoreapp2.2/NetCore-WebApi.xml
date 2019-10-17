@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetCore-WebApi</name>
+    </assembly>
+    <members>
+        <member name="F:NetCore_WebApi.Const.SecurityKey">
+            <summary>
+            这里为了演示，写死一个密钥。实际生产环境可以从配置文件读取,这个是用网上工具随便生成的一个密钥
+            </summary>
+        </member>
+        <member name="F:NetCore_WebApi.Const.Domain">
+            <summary>
+            站点地址
+            </summary>
+        </member>
+        <member name="F:NetCore_WebApi.Const.ValidAudience">
+            <summary>
+            受理人，之所以弄成可变的是为了用接口动态更改这个值以模拟强制Token失效
+            真实业务场景可以在数据库或者redis存一个和用户id相关的值，生成token和验证token的时候获取到持久化的值去校验
+            如果重新登陆，则刷新这个值
+            </summary>
+        </member>
+        <member name="M:NetCore_WebApi.Controllers.AuthController.CheckAccount(System.String,System.String,System.String@)">
+            <summary>
+            模拟登陆校验，因为是模拟，所以逻辑很‘模拟’
+            </summary>
+            <param name="userName"></param>
+            <param name="pwd"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NetCore_WebApi.Policy.PolicyRequirement">
+            <summary>
+            权限承载实体
+            </summary>
+        </member>
+        <member name="P:NetCore_WebApi.Policy.PolicyRequirement.UserPermissions">
+            <summary>
+            用户权限集合
+            </summary>
+        </member>
+        <member name="P:NetCore_WebApi.Policy.PolicyRequirement.DeniedAction">
+            <summary>
+            无权限action
+            </summary>
+        </member>
+        <member name="M:NetCore_WebApi.Policy.PolicyRequirement.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:NetCore_WebApi.Policy.UserPermission">
+            <summary>
+            用户权限承载实体
+            </summary>
+        </member>
+        <member name="P:NetCore_WebApi.Policy.UserPermission.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:NetCore_WebApi.Policy.UserPermission.Url">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+    </members>
+</doc>
